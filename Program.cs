@@ -1,5 +1,7 @@
-﻿int o = 1;
-while (o == 1)
+
+using System.Runtime.Intrinsics.X86;
+
+while (true)
 {
     Console.WriteLine("выюерите действие: " +
         "\r\n 1. Игра \"Угадай число\"" +
@@ -7,11 +9,17 @@ while (o == 1)
         "\r\n 3. Вывод делителей числа" +
         "\r\n 4. Выход из программы");
     int x = Convert.ToInt32(Console.ReadLine());
-    if (x == 1)
+    if (x == 1) { chislo(); }
+    else if (x == 2) { table(); }
+    else if (x == 3) { delitel(); }
+    else if (x == 4) { break; }
+    else { Console.WriteLine("error"); }
+}
+    static void chislo()
     {
         Random p = new Random();
         int a = p.Next(0, 100);
-        while (o == 1)
+        while (true)
         {
             Console.WriteLine("Введите число");
             int s = Convert.ToInt32(Console.ReadLine());
@@ -24,7 +32,7 @@ while (o == 1)
             }
         }
     }
-    else if (x == 2)
+    static void table()
     {
         Console.WriteLine("таблица умножения:");
         for (int m = 1; m <= 9; m++)
@@ -38,7 +46,7 @@ while (o == 1)
         }
 
     }
-    else if (x == 3)
+    static void delitel()
     {
         Console.WriteLine("введите число");
         int a = Convert.ToInt32(Console.ReadLine());
@@ -52,6 +60,4 @@ while (o == 1)
         }
         Console.WriteLine("\r\n");
     }
-    else if (x == 4) { break; }
-    else { Console.WriteLine("error"); }
-}
+    
